@@ -26,10 +26,10 @@ public class Rover extends Coordination {
                     break;
                 case 'M':
                     switch (compassPoint) {
-                        case N -> x++;
-                        case E -> y++;
-                        case S -> x--;
-                        case W -> y--;
+                        case N -> y++;
+                        case E -> x++;
+                        case S -> y--;
+                        case W -> x--;
                     }
             }
 
@@ -39,6 +39,6 @@ public class Rover extends Coordination {
 
     public String getOutput(){
 
-        return "";
+        return x + " " + y + " " + compassPoint;
     }
 }

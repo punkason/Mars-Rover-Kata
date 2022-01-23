@@ -8,10 +8,8 @@ public class Rover extends Coordination {
     private CompassEnum compassPoint;
 
     public Rover(String s){
-        s = s.replace(" ", "");
-        x = Character.getNumericValue(s.charAt(X_CHAR));
-        y = Character.getNumericValue( s.charAt(Y_CHAR));
-        compassPoint = CompassEnum.valueOf(s.substring(COMPASS_CHAR,COMPASS_CHAR+1));
+        super(s);
+        compassPoint = CompassEnum.valueOf(this.s.substring(COMPASS_CHAR,COMPASS_CHAR+1));
     }
 
     public void move(Plateau p, String str) {

@@ -1,24 +1,33 @@
 import com.marsrover.system.service.Plateau;
 import com.marsrover.system.service.Rover;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class MarsRoverKataTest {
 
     private Plateau p;
-    private Rover r;
+    private List<Rover> roverList;
     String expectedResult;
     String actualResult;
+
+    @Before
+    public void setup(){
+        roverList = new ArrayList<>();
+    }
 
     @Test
     public void changeToWest(){
         p = new Plateau("5 5");
-        r = new Rover("1 1 N");
-        //r.move(p,"L");
+        Rover r = new Rover("1 1 N", "L");
+        roverList.add(r);
 
         expectedResult = "1 1 W";
-        actualResult = r.getOutput(p,"L");
-
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
     }
@@ -26,11 +35,11 @@ public class MarsRoverKataTest {
     @Test
     public void changeToEast(){
         p = new Plateau("5 5");
-        r = new Rover("1 1 N");
-        //r.move(p,"R");
+        Rover r = new Rover("1 1 N", "R");
+        roverList.add(r);
 
         expectedResult = "1 1 E";
-        actualResult = r.getOutput(p,"R");
+        actualResult = p.getOutput(roverList);
 
 
         assertEquals(expectedResult, actualResult);
@@ -39,12 +48,11 @@ public class MarsRoverKataTest {
     @Test
     public void changeToSouth(){
         p = new Plateau("5 5");
-        r = new Rover("1 1 N");
-        //r.move(p,"RR");
+        Rover r = new Rover("1 1 N", "RR");
+        roverList.add(r);
 
         expectedResult = "1 1 S";
-        actualResult = r.getOutput(p,"RR");
-
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
     }
@@ -52,12 +60,11 @@ public class MarsRoverKataTest {
     @Test
     public void moveNorth(){
         p = new Plateau("5 5");
-        r = new Rover("1 1 N");
-        //r.move(p,"M");
+        Rover r = new Rover("1 1 N", "M");
+        roverList.add(r);
 
         expectedResult = "1 2 N";
-        actualResult = r.getOutput(p,"M");
-
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
     }
@@ -65,12 +72,11 @@ public class MarsRoverKataTest {
     @Test
     public void moveEast(){
         p = new Plateau("5 5");
-        r = new Rover("1 1 E");
-        //r.move(p,"M");
+        Rover r = new Rover("1 1 E", "M");
+        roverList.add(r);
 
         expectedResult = "2 1 E";
-        actualResult = r.getOutput(p,"M");
-
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
     }
@@ -78,12 +84,11 @@ public class MarsRoverKataTest {
     @Test
     public void moveSouth(){
         p = new Plateau("5 5");
-        r = new Rover("1 1 S");
-        //r.move(p,"M");
+        Rover r = new Rover("1 1 S","M");
+        roverList.add(r);
 
         expectedResult = "1 0 S";
-        actualResult = r.getOutput(p,"M");
-
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
     }
@@ -91,12 +96,11 @@ public class MarsRoverKataTest {
     @Test
     public void moveWest(){
         p = new Plateau("5 5");
-        r = new Rover("1 1 W");
-        //r.move(p,"M");
+        Rover r = new Rover("1 1 W","M");
+        roverList.add(r);
 
         expectedResult = "0 1 W";
-        actualResult = r.getOutput(p,"M");
-
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
     }
@@ -104,19 +108,13 @@ public class MarsRoverKataTest {
     @Test
     public void twoInput(){
         p = new Plateau("5 5");
-        r = new Rover("1 2 N");
-        //r.move(p,"LMLMLMLMM");
+        Rover r = new Rover("1 2 N","LMLMLMLMM");
+        roverList.add(r);
+        r = new Rover("3 3 E","MMRMMRMRRM");
+        roverList.add(r);
 
-        expectedResult = "1 3 N";
-        actualResult = r.getOutput(p,"LMLMLMLMM");
-
-        assertEquals(expectedResult, actualResult);
-
-        r = new Rover("3 3 E");
-        //r.move(p,"MMRMMRMRRM");
-
-        expectedResult = "5 1 E";
-        actualResult = r.getOutput(p,"MMRMMRMRRM");
+        expectedResult = "1 3 N\n5 1 E";
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
     }
@@ -124,36 +122,28 @@ public class MarsRoverKataTest {
     @Test
     public void roverOutOfXBoundary(){
         p = new Plateau("2 2");
-        r = new Rover("1 1 W");
-        //r.move(p,"LLMMM");
+        Rover r = new Rover("1 1 W","MMM");
+        roverList.add(r);
+        r = new Rover("1 1 E","MMM");
+        roverList.add(r);
 
-        expectedResult = "Rover is out of boundary.";
-        actualResult = r.getOutput(p,"MMM");
-
-        assertEquals(expectedResult, actualResult);
-
-        r = new Rover("1 1 E");
-        actualResult = r.getOutput(p,"MMM");
+        expectedResult = "Rover is out of boundary.\nRover is out of boundary.";
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
-
     }
 
     @Test
     public void roverOutOfYBoundary(){
         p = new Plateau("2 2");
-        r = new Rover("1 1 S");
-        //r.move(p,"LLMMM");
+        Rover r = new Rover("1 1 S","MMM");
+        roverList.add(r);
+        r = new Rover("1 1 N","MMM");
+        roverList.add(r);
 
-        expectedResult = "Rover is out of boundary.";
-        actualResult = r.getOutput(p,"MMM");
-
-        assertEquals(expectedResult, actualResult);
-
-        r = new Rover("1 1 N");
-        actualResult = r.getOutput(p,"MMM");
+        expectedResult = "Rover is out of boundary.\nRover is out of boundary.";
+        actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);
-
     }
 }

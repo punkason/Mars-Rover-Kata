@@ -1,12 +1,25 @@
 package com.marsrover.system.service;
 
-public class Plateau extends Coordination {
+import java.util.List;
 
+public class Plateau extends Coordination {
+    private final int MAXX;
+    private final int MAXY;
     public Plateau(String s){
         super(s);
+        MAXX = x;
+        MAXY = y;
     }
 
-    public boolean checkOutOfPlateau(int roverX, int roverY){
-        return roverX < 0 || roverY < 0 || roverX > x || roverY > y;
+
+
+    public String getOutput(List<Rover> roverList){
+        String message="";
+        for (Rover r : roverList) {
+            if (!message.equals(""))
+                message += "\n";
+            message += r.move(MAXX, MAXY);
+        }
+        return message;
     }
 }

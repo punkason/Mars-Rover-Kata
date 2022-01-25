@@ -1,8 +1,8 @@
 package com.marsrover.system.service;
 
 public class Coordination {
-    protected static final int X_CHAR = 0;
-    protected static final int Y_CHAR = 1;
+    private static final int X_CHAR = 0;
+    private static final int Y_CHAR = 1;
     protected int x;
     protected int y;
     protected String input;
@@ -17,16 +17,9 @@ public class Coordination {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
 }
 

@@ -19,10 +19,6 @@ public class Plateau extends Coordination {
                 message += "\n";
             message += curRover.move(MAX_X, MAX_Y, roverList);
         }
-/*
-        for (Rover r : roverList) {
-            System.out.println("DEBUG:"+ r.getX() + " " +r.getY());
-        }*/
         return message;
     }
 }

@@ -38,14 +38,13 @@ public class Rover extends Coordination {
                     }
             }
             if(checkOutOfPlateau(MAX_X, MAX_Y)) {//check out of boundary
-                x = -1; // the rover disappers from the plateau
+                x = -1; // the rover disappears from the plateau
                 y = -1;
                 return "Rover is out of boundary.";
             }else{//check crash with other rover
                 for (Rover tmpRover : roverList) {
-                    if(tmpRover != this)
-                        if(tmpRover.getX() == x && tmpRover.getY() == y)
-                            return "Rover is crash.";
+                    if(tmpRover != this && (tmpRover.getX() == x && tmpRover.getY() == y)) //skip comparing between my own rover AND checking if x,y is occupied
+                        return "Rover is crash.";
                 }
             }
         }

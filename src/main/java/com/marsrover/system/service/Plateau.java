@@ -6,8 +6,7 @@ public class Plateau extends Coordination {
         super(s);
     }
 
-    public boolean checkWithinPlateau(){
-
-        return false;
+    public boolean checkOutOfPlateau(int roverX, int roverY){
+        return roverX < 0 || roverY < 0 || roverX > x || roverY > y;
     }
 }

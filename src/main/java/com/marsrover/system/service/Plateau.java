@@ -3,13 +3,13 @@ package com.marsrover.system.service;
 import java.util.List;
 
 public class Plateau extends Coordination {
-    private final int MAXX;
-    private final int MAXY;
+    private final int MAX_X;
+    private final int MAX_Y;
 
     public Plateau(String s){
         super(s);
-        MAXX = x;
-        MAXY = y;
+        MAX_X = x;
+        MAX_Y = y;
     }
 
     public String getOutput(List<Rover> roverList){
@@ -17,7 +17,7 @@ public class Plateau extends Coordination {
         for (Rover curRover : roverList) {
             if (!message.equals(""))
                 message += "\n";
-            message += curRover.move(MAXX, MAXY, roverList, curRover);
+            message += curRover.move(MAX_X, MAX_Y, roverList);
         }
 /*
         for (Rover r : roverList) {

@@ -19,7 +19,7 @@ public class Rover extends Coordination {
         return x < 0 || y < 0 || x > MAXX || y > MAXY;
     }
 
-    public String move(final int MAXX, final int MAXY, List<Rover> roverList, Rover curRover) {
+    public String move(final int MAX_X, final int MAX_Y, List<Rover> roverList) {
         for (int i = 0; i < move.length(); i++){
             char action = move.charAt(i);
             switch (action){
@@ -37,13 +37,13 @@ public class Rover extends Coordination {
                         case W -> x--;
                     }
             }
-            if(checkOutOfPlateau(MAXX, MAXY)) {//check out of boundary
+            if(checkOutOfPlateau(MAX_X, MAX_Y)) {//check out of boundary
                 x = -1; // the rover disappers from the plateau
                 y = -1;
                 return "Rover is out of boundary.";
             }else{//check crash with other rover
                 for (Rover tmpRover : roverList) {
-                    if(tmpRover != curRover)
+                    if(tmpRover != this)
                         if(tmpRover.getX() == x && tmpRover.getY() == y)
                             return "Rover is crash.";
                 }

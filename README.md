@@ -8,9 +8,10 @@ This repo is designed to stimulate rovers movement around the surface of Mars.
 You will be exploring a Mars Rover Kata System.
 
 ## Assumption
-1. The Plateau is a rectangular grid.
+- The Plateau is a rectangular grid.
+- Rovers move sequentially.
+- If any collision, the condition of rover that is being hit is normal.
 
-2. Rovers move sequentially.
 
 ## Key Features 
 

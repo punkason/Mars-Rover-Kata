@@ -1,6 +1,7 @@
 import com.marsrover.system.service.Plateau;
 import com.marsrover.system.service.Rover;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -20,6 +21,17 @@ public class MarsRoverKataTest {
         roverList = new ArrayList<>();
     }
 
+    @Test
+    public void noMovement(){
+        p = new Plateau("5 5");
+        Rover r = new Rover("1 1 N", "");
+        roverList.add(r);
+
+        expectedResult = "1 1 N";
+        actualResult = p.getOutput(roverList);
+
+        assertEquals(expectedResult, actualResult);
+    }
     @Test
     public void changeToWest(){
         p = new Plateau("5 5");
@@ -124,7 +136,7 @@ public class MarsRoverKataTest {
         p = new Plateau("2 2");
         Rover r = new Rover("1 1 W","MMM");
         roverList.add(r);
-        r = new Rover("1 1 E","MMM");
+        r = new Rover("1 0 E","MMM");
         roverList.add(r);
 
         expectedResult = "Rover is out of boundary.\nRover is out of boundary.";
@@ -138,10 +150,54 @@ public class MarsRoverKataTest {
         p = new Plateau("2 2");
         Rover r = new Rover("1 1 S","MMM");
         roverList.add(r);
-        r = new Rover("1 1 N","MMM");
+        r = new Rover("0 1 N","MMM");
         roverList.add(r);
 
         expectedResult = "Rover is out of boundary.\nRover is out of boundary.";
+        actualResult = p.getOutput(roverList);
+
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void firstRoverCrash(){
+        p = new Plateau("5 5");
+        Rover r = new Rover("0 0 N","MMM");
+        roverList.add(r);
+        r = new Rover("0 1 N","MMM");
+        roverList.add(r);
+
+        expectedResult = "Rover is crash.\n0 4 N";
+        actualResult = p.getOutput(roverList);
+
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void secondRoverCrash(){
+        p = new Plateau("5 5");
+        Rover r = new Rover("0 1 N","M");
+        roverList.add(r);
+        r = new Rover("0 0 N","MMM");
+        roverList.add(r);
+
+        expectedResult = "0 2 N\nRover is crash.";
+        actualResult = p.getOutput(roverList);
+
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void secondAndThirdRoverCrash(){
+        p = new Plateau("5 5");
+        Rover r = new Rover("0 1 N","M");
+        roverList.add(r);
+        r = new Rover("0 0 N","MMM");
+        roverList.add(r);
+        r = new Rover("0 4 S","MMM");
+        roverList.add(r);
+
+        expectedResult = "0 2 N\nRover is crash.\nRover is crash.";
         actualResult = p.getOutput(roverList);
 
         assertEquals(expectedResult, actualResult);

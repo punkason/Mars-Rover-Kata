@@ -14,11 +14,15 @@ public class Plateau extends Coordination {
         message="";
     }
 
+    public boolean checkOutOfPlateau(){
+        return x < 0 || y < 0 || x > MAX_X || y > MAX_Y;
+    }
+
     public void moveRover(List<Rover> roverList){
         for (Rover curRover : roverList) {
             if (!message.equals(""))
                 message += "\n";
-            message += curRover.move(MAX_X, MAX_Y, roverList);
+            message += curRover.move(MAX_X, MAX_Y, roverList, this);
         }
     }
 

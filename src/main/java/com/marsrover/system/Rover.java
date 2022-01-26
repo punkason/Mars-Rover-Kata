@@ -13,11 +13,9 @@ public class Rover extends Coordination {
         this.move = move;
     }
 
-    private boolean checkOutOfPlateau(final int MAX_X, final int MAX_Y){
-        return x < 0 || y < 0 || x > MAX_X || y > MAX_Y;
-    }
 
-    public String move(final int MAX_X, final int MAX_Y, List<Rover> roverList) {
+
+    public String move(final int MAX_X, final int MAX_Y, List<Rover> roverList, Plateau plateau) {
         for (int i = 0; i < move.length(); i++){
             char action = move.charAt(i);
             switch (action){
@@ -35,7 +33,7 @@ public class Rover extends Coordination {
                         case W -> x--;
                     }
             }
-            if(checkOutOfPlateau(MAX_X, MAX_Y)) {//check out of boundary
+            if(plateau.checkOutOfPlateau()) {//check out of boundary
                 x = -1; // the rover disappears from the plateau
                 y = -1;
                 return "Rover is out of boundary.";

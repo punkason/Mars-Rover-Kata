@@ -1,6 +1,4 @@
-package com.marsrover.system.service;
-
-import com.marsrover.system.model.CompassEnum;
+package com.marsrover.system;
 
 import java.util.List;
 

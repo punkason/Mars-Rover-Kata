@@ -1,4 +1,4 @@
-package com.marsrover.system.service;
+package com.marsrover.system;
 
 import java.util.List;
 

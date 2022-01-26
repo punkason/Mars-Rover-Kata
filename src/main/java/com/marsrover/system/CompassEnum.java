@@ -1,4 +1,4 @@
-package com.marsrover.system.model;
+package com.marsrover.system;
 
 public enum CompassEnum {
     N,

@@ -1,4 +1,4 @@
-package com.marsrover.system.service;
+package com.marsrover.system;
 
 public class Coordination {
     private static final int X_CHAR = 0;

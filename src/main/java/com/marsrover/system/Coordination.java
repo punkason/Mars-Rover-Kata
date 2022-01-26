@@ -7,8 +7,8 @@ public class Coordination {
     protected int y;
     protected String input;
 
-    public Coordination(String s){
-        input = s.replace(" ", "");
+    public Coordination(String str){
+        input = str.replace(" ", "");
         x = Character.getNumericValue(input.charAt(X_CHAR));
         y = Character.getNumericValue(input.charAt(Y_CHAR));
     }

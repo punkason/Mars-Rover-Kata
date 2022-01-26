@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class MarsRoverKataTest {
 
-    private RectangularPlateau plateau;
+    private Plateau plateau;
     private List<Rover> roverList;
     String expectedResult;
     String actualResult;

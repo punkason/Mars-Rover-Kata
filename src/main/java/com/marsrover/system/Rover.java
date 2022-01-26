@@ -13,9 +13,7 @@ public class Rover extends Coordination {
         this.move = move;
     }
 
-
-
-    public String move(final int MAX_X, final int MAX_Y, List<Rover> roverList, RectangularPlateau plateau) {
+    public String move(List<Rover> roverList, Plateau plateau) {
         for (int i = 0; i < move.length(); i++){
             char action = move.charAt(i);
             switch (action){

@@ -11,6 +11,7 @@ You will be exploring a Mars Rover Kata System.
 - The Plateau is a rectangular grid.
 - Rovers move sequentially.
 - If any collision, the condition of rover that is being hit is normal.
+- Size of rover is 1 x 1.
 
 
 ## Key Features 
@@ -39,8 +40,13 @@ You will be exploring a Mars Rover Kata System.
 - Java SE Development Kit 
 - Maven
 
-### Running the Unit Tests
+## Running the Unit Tests
 
 You can run the unit tests in IntelliJ, or you can go to your terminal and inside the root of this directory, run:
 
 `mvn test`
+
+
+## Further enhancement
+
+Other type of plateau are supported by extending from AbstractPlateau.java

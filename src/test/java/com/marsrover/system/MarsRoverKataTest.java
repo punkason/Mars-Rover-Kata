@@ -12,8 +12,9 @@ public class MarsRoverKataTest {
 
     private Plateau plateau;
     private List<Rover> roverList;
-    String expectedResult;
-    String actualResult;
+    private Rover rover;
+    private String expectedResult;
+    private String actualResult;
 
     @Before
     public void setup(){
@@ -23,7 +24,7 @@ public class MarsRoverKataTest {
     @Test
     public void noMovement(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 1 N", "");
+        rover = new Rover("1 1 N", "");
         roverList.add(rover);
         plateau.moveRover(roverList);
 
@@ -35,7 +36,7 @@ public class MarsRoverKataTest {
     @Test
     public void changeToWest(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 1 N", "L");
+        rover = new Rover("1 1 N", "L");
         roverList.add(rover);
         plateau.moveRover(roverList);
 
@@ -48,7 +49,7 @@ public class MarsRoverKataTest {
     @Test
     public void changeToEast(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 1 N", "R");
+        rover = new Rover("1 1 N", "R");
         roverList.add(rover);
         plateau.moveRover(roverList);
 
@@ -62,7 +63,7 @@ public class MarsRoverKataTest {
     @Test
     public void changeToSouth(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 1 N", "RR");
+        rover = new Rover("1 1 N", "RR");
         roverList.add(rover);
         plateau.moveRover(roverList);
 
@@ -75,7 +76,7 @@ public class MarsRoverKataTest {
     @Test
     public void moveNorth(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 1 N", "M");
+        rover = new Rover("1 1 N", "M");
         roverList.add(rover);
         plateau.moveRover(roverList);
 
@@ -88,7 +89,7 @@ public class MarsRoverKataTest {
     @Test
     public void moveEast(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 1 E", "M");
+        rover = new Rover("1 1 E", "M");
         roverList.add(rover);
         plateau.moveRover(roverList);
 
@@ -101,7 +102,7 @@ public class MarsRoverKataTest {
     @Test
     public void moveSouth(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 1 S","M");
+        rover = new Rover("1 1 S","M");
         roverList.add(rover);
         plateau.moveRover(roverList);
 
@@ -114,7 +115,7 @@ public class MarsRoverKataTest {
     @Test
     public void moveWest(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 1 W","M");
+        rover = new Rover("1 1 W","M");
         roverList.add(rover);
         plateau.moveRover(roverList);
 
@@ -127,7 +128,7 @@ public class MarsRoverKataTest {
     @Test
     public void twoInput(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("1 2 N","LMLMLMLMM");
+        rover = new Rover("1 2 N","LMLMLMLMM");
         roverList.add(rover);
         rover = new Rover("3 3 E","MMRMMRMRRM");
         roverList.add(rover);
@@ -142,7 +143,7 @@ public class MarsRoverKataTest {
     @Test
     public void roverOutOfXBoundary(){
         plateau = new RectangularPlateau("2 2");
-        Rover rover = new Rover("1 1 W","MMM");
+        rover = new Rover("1 1 W","MMM");
         roverList.add(rover);
         rover = new Rover("1 0 E","MMM");
         roverList.add(rover);
@@ -157,7 +158,7 @@ public class MarsRoverKataTest {
     @Test
     public void roverOutOfYBoundary(){
         plateau = new RectangularPlateau("2 2");
-        Rover rover = new Rover("1 1 S","MMM");
+        rover = new Rover("1 1 S","MMM");
         roverList.add(rover);
         rover = new Rover("0 1 N","MMM");
         roverList.add(rover);
@@ -172,7 +173,7 @@ public class MarsRoverKataTest {
     @Test
     public void firstRoverCrash(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("0 0 N","MMM");
+        rover = new Rover("0 0 N","MMM");
         roverList.add(rover);
         rover = new Rover("0 1 N","MMM");
         roverList.add(rover);
@@ -187,7 +188,7 @@ public class MarsRoverKataTest {
     @Test
     public void secondRoverCrash(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("0 1 N","M");
+        rover = new Rover("0 1 N","M");
         roverList.add(rover);
         rover = new Rover("0 0 N","MMM");
         roverList.add(rover);
@@ -202,7 +203,7 @@ public class MarsRoverKataTest {
     @Test
     public void secondAndThirdRoverCrash(){
         plateau = new RectangularPlateau("5 5");
-        Rover rover = new Rover("0 1 N","M");
+        rover = new Rover("0 1 N","M");
         roverList.add(rover);
         rover = new Rover("0 0 N","MMM");
         roverList.add(rover);

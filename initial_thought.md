@@ -1,15 +1,15 @@
-# Mars com.marsrover.system.Rover Kata - Initial Thought
+# Mars Rover Kata - Initial Thought
 
 
-## com.marsrover.system.Coordination Class
+## Coordination Class
 It is a superclass providing x and y coordinates as long as their related getter and setter method.
 
-## com.marsrover.system.Plateau Class
+## Plateau Class
 It controls the size of the plateau.
 It is a subclass of coordination class.
 In additional to x and y coordinates, checkWithinPlateau() method is added to check if the next move of the rover will still in the plateau.
 
-## com.marsrover.system.Rover Class
+## Rover Class
 It stores information of rover, including x and y coordinates from its superclass.
 On the other hand, compassPoint is for controlling the direction of the rover.
 We use integer to represent as it is easier to implement and convert back to N, E, S, W in getOutput() method.

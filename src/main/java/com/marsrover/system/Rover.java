@@ -13,8 +13,8 @@ public class Rover extends Coordination {
         this.move = move;
     }
 
-    private boolean checkOutOfPlateau(final int MAXX, final int MAXY){
-        return x < 0 || y < 0 || x > MAXX || y > MAXY;
+    private boolean checkOutOfPlateau(final int MAX_X, final int MAX_Y){
+        return x < 0 || y < 0 || x > MAX_X || y > MAX_Y;
     }
 
     public String move(final int MAX_X, final int MAX_Y, List<Rover> roverList) {

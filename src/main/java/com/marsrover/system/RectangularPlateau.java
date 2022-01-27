@@ -1,6 +1,6 @@
 package com.marsrover.system;
 
-public class RectangularPlateau extends AbstractPlateau {
+public class RectangularPlateau extends PlateauTemplate {
     public RectangularPlateau(String str) {
         super(str);
     }

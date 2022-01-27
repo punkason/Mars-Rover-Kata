@@ -5,17 +5,17 @@ import java.util.List;
 public class Rover extends Coordination {
     private static final int COMPASS_CHAR = 2;
     private CompassEnum compassPoint;
-    private final String move;
+    private final String MOVE;
 
     public Rover(String s, String move){
         super(s);
         compassPoint = CompassEnum.valueOf(this.input.substring(COMPASS_CHAR,COMPASS_CHAR+1));
-        this.move = move;
+        MOVE = move;
     }
 
-    public String move(List<Rover> roverList, Plateau plateau) {
-        for (int i = 0; i < move.length(); i++){
-            char action = move.charAt(i);
+    public String moveRover(List<Rover> roverList, Plateau plateau) {
+        for (int i = 0; i < MOVE.length(); i++){
+            char action = MOVE.charAt(i);
             switch (action){
                 case 'L':
                     compassPoint = compassPoint.getPre();

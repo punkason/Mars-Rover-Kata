@@ -49,6 +49,14 @@ public class Rover extends Coordination {
         return false;
     }
 
+    private boolean roverHealthCheck(List<Rover> roverList, Plateau plateau){
+        if(plateau.checkOutOfPlateau(x,y)||checkRoverCrash(roverList)) {
+            roverLostSignal();
+            return false;
+        }
+        return true;
+    }
+
     public void sendSignalToRover(List<Rover> roverList, Plateau plateau) {
         for (int i = 0; i < MOVE.length(); i++){
             char action = MOVE.charAt(i);
@@ -67,14 +75,6 @@ public class Rover extends Coordination {
                 return;
         }
         message =  x + " " + y + " " + compassPoint;
-    }
-
-    public boolean roverHealthCheck(List<Rover> roverList, Plateau plateau){
-        if(plateau.checkOutOfPlateau(x,y)||checkRoverCrash(roverList)) {
-            roverLostSignal();
-            return false;
-        }
-        return true;
     }
 
     public String receiveSignalFromRover() {

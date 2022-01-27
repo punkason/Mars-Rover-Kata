@@ -10,13 +10,13 @@ You will be exploring a Mars Rover Kata System.
 ## Assumption
 - The Plateau is a rectangular grid.
 - Rovers move sequentially.
-- If any collision, the condition of rover that is being hit is normal.
-- Size of rover is 1 x 1.
+- If any collision, the condition of rover that is being hit is normal. The one hits other is damaged.
+- Size of rovers are 1 x 1.
 
 
 ## Key Features 
 
-- Rover’s position is represented by x and y co-ordinates and the letters N, S, W, E to represent North, South, West, East respectively.
+- Position of rover is represented by x and y co-ordinates and the letters N, S, W, E to represent North, South, West, East respectively.
 
 - To move a Rover around the Plateau, a string of letters is sent to a Rover.
    Here are the letters and their resultant action:
@@ -49,4 +49,4 @@ You can run the unit tests in IntelliJ, or you can go to your terminal and insid
 
 ## Further enhancement
 
-Other type of plateau are supported by extending from AbstractPlateau.java
+Other type of plateau are supported by extending from PlateauTemplate.java

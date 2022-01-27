@@ -21,6 +21,8 @@ public abstract class AbstractPlateau extends Coordination implements Plateau {
                 message += "\n";
             message += curRover.move(roverList, this);
         }
+        if (message.equals(""))
+            message = "There is no rover";
     }
 
     public String getOutput(){

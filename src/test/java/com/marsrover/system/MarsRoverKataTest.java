@@ -22,6 +22,17 @@ public class MarsRoverKataTest {
     }
 
     @Test
+    public void noRover(){
+        plateau = new RectangularPlateau("5 5");
+        plateau.moveRover(roverList);
+
+        expectedResult = "There is no rover";
+        actualResult = plateau.getOutput();
+
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
     public void noMovement(){
         plateau = new RectangularPlateau("5 5");
         rover = new Rover("1 1 N", "");
@@ -33,6 +44,7 @@ public class MarsRoverKataTest {
 
         assertEquals(expectedResult, actualResult);
     }
+
     @Test
     public void changeToWest(){
         plateau = new RectangularPlateau("5 5");

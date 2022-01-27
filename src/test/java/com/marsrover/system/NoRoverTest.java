@@ -1,6 +1,5 @@
 package com.marsrover.system;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,15 +9,9 @@ import static org.junit.Assert.assertEquals;
 
 public class NoRoverTest {
 
-    private List<Rover> roverList;
-
-    @Before
-    public void setup(){
-        roverList = new ArrayList<>();
-    }
-
     @Test
     public void noRover(){
+        List<Rover> roverList = new ArrayList<>();
         Plateau plateau = new RectangularPlateau("5 5");
         plateau.moveRover(roverList);
 

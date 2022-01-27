@@ -1,6 +1,5 @@
 package com.marsrover.system;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -13,12 +12,6 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(value = Parameterized.class)
 public class OneRoverTest {
-    private List<Rover> roverList;
-
-    @Before
-    public void setup(){
-        roverList = new ArrayList<>();
-    }
 
     @Parameter
     public String plateauSize;
@@ -50,6 +43,7 @@ public class OneRoverTest {
 
     @Test
     public void oneRover() {
+        List<Rover> roverList = new ArrayList<>();
         Plateau plateau = new RectangularPlateau(plateauSize);
         Rover rover = new Rover(roverLocation, movement);
         roverList.add(rover);

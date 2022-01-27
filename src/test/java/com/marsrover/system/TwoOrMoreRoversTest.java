@@ -45,7 +45,7 @@ public class TwoOrMoreRoversTest {
         roverList.add(rover);
         plateau.moveRover(roverList);
 
-        expectedResult = "Rover is crash.\n0 4 N";
+        expectedResult = "Rover is crashed.\n0 4 N";
         actualResult = plateau.getOutput();
 
         assertEquals(expectedResult, actualResult);
@@ -60,7 +60,7 @@ public class TwoOrMoreRoversTest {
         roverList.add(rover);
         plateau.moveRover(roverList);
 
-        expectedResult = "0 2 N\nRover is crash.";
+        expectedResult = "0 2 N\nRover is crashed.";
         actualResult = plateau.getOutput();
 
         assertEquals(expectedResult, actualResult);
@@ -77,7 +77,7 @@ public class TwoOrMoreRoversTest {
         roverList.add(rover);
         plateau.moveRover(roverList);
 
-        expectedResult = "0 2 N\nRover is crash.\nRover is crash.";
+        expectedResult = "0 2 N\nRover is crashed.\nRover is crashed.";
         actualResult = plateau.getOutput();
 
         assertEquals(expectedResult, actualResult);

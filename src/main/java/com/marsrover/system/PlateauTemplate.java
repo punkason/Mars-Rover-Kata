@@ -19,7 +19,8 @@ public abstract class PlateauTemplate extends Coordination implements Plateau {
         for (Rover curRover : roverList) {
             if (!message.equals(""))
                 message += "\n";
-            message += curRover.moveRover(roverList, this);
+            curRover.sendSignalToRover(roverList, this);
+            message += curRover.receiveSignalFromRover();
         }
         if (message.equals(""))
             message = "There is no rover";

@@ -12,6 +12,7 @@ You will be exploring a Mars Rover Kata System.
 - Rovers move sequentially.
 - If any collision, the condition of rover that is being hit is normal. The one hits other is damaged.
 - Size of rovers are 1 x 1.
+- Crashed rovers will disappear in the plateau immediately. It will not affect rovers afterwards.
 
 
 ## Key Features 

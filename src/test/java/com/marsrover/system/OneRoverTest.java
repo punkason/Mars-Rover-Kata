@@ -34,10 +34,10 @@ public class OneRoverTest {
                 {"5 5","1 1 E","M","2 1 E"}, //moveEast
                 {"5 5","1 1 S","M","1 0 S"}, //moveSouth
                 {"5 5","1 1 W","M","0 1 W"}, //moveWest
-                {"2 2","1 1 W","MMM","Rover is out of boundary."}, //rover.x < 0
-                {"2 2","1 0 E","MMM","Rover is out of boundary."}, //rover.x > MAX_X
-                {"2 2","1 1 S","MMM","Rover is out of boundary."}, //rover.y < 0
-                {"2 2","0 1 N","MMM","Rover is out of boundary."}, //rover.y > MAX_Y
+                {"2 2","1 1 W","MMM","Rover is crashed."}, //rover.x < 0
+                {"2 2","1 0 E","MMM","Rover is crashed."}, //rover.x > MAX_X
+                {"2 2","1 1 S","MMM","Rover is crashed."}, //rover.y < 0
+                {"2 2","0 1 N","MMM","Rover is crashed."}, //rover.y > MAX_Y
         };
     }
 

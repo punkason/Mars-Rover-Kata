@@ -2,36 +2,42 @@ package com.marsrover.system;
 
 import java.util.List;
 
-public class Rover extends Coordination {
+public class Rover {
+    private static final int X_CHAR = 0;
+    private static final int Y_CHAR = 1;
     private static final int COMPASS_CHAR = 2;
     private final String MOVE;
     private CompassEnum compassPoint;
     private String message;
+    private int x;
+    private int y;
 
     public Rover(String str, String move){
-        super(str);
-        compassPoint = CompassEnum.valueOf(this.input.substring(COMPASS_CHAR,COMPASS_CHAR+1));
+        String[] input = str.split(" ");
+        x = Integer.parseInt(input[X_CHAR]);
+        y = Integer.parseInt(input[Y_CHAR]);
+        compassPoint = CompassEnum.valueOf(input[COMPASS_CHAR]);
         MOVE = move;
     }
 
     private void roverChangeDirection(char action){
         if (action == 'L')
             compassPoint = compassPoint.getPre();
-        else
+        else //R
             compassPoint = compassPoint.getNext();
     }
 
     private void roverMoveXAxis() {
         if (compassPoint == CompassEnum.E)
             x++;
-        else
+        else //W
             x--;
     }
 
     private void roverMoveYAxis(){
         if (compassPoint == CompassEnum.N)
             y++;
-        else
+        else //S
             y--;
     }
 
@@ -79,5 +85,13 @@ public class Rover extends Coordination {
 
     public String receiveSignalFromRover() {
         return message;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

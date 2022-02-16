@@ -47,6 +47,10 @@ public class Rover {
         message = "Rover is crashed.";
     }
 
+    private void negativeCoordinate(){
+        message = "The coordinates are negative.";
+    }
+
     private boolean checkRoverCrash(List<Rover> roverList){
         for (Rover tmpRover : roverList)
             if(tmpRover != this && (tmpRover.getX() == x && tmpRover.getY() == y)) {//skip comparing between my own rover AND checking if x,y is occupied
@@ -56,11 +60,16 @@ public class Rover {
     }
 
     private boolean roverHealthCheck(List<Rover> roverList, Plateau plateau){
-        if(plateau.checkOutOfPlateau(x,y)||checkRoverCrash(roverList)) {
-            roverLostSignal();
+        try {
+            if (plateau.checkOutOfPlateau(x, y) || checkRoverCrash(roverList)) {
+                roverLostSignal();
+                return false;
+            }
+            return true;
+        }catch (Exception e){
+            negativeCoordinate();
             return false;
         }
-        return true;
     }
 
     public void sendSignalToRover(List<Rover> roverList, Plateau plateau) {

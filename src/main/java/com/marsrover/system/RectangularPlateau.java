@@ -6,8 +6,10 @@ public class RectangularPlateau extends PlateauTemplate {
     }
 
     @Override
-    public boolean checkOutOfPlateau(int x, int y){
-        return x < 0 || y < 0 || x > MAX_X || y > MAX_Y;
+    public boolean checkOutOfPlateau(int x, int y) throws Exception {
+        if (x < 0 || y < 0 )
+            throw new Exception();
+        return x > MAX_X || y > MAX_Y;
     }
 
 }

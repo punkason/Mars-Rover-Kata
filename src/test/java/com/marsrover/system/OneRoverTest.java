@@ -43,12 +43,12 @@ public class OneRoverTest {
 
     @Test
     public void oneRover() {
-        List<Rover> roverList = new ArrayList<>();
+        List<Vehicle> vehicleList = new ArrayList<>();
         Plateau plateau = new RectangularPlateau(plateauSize);
-        Rover rover = new Rover(roverLocation, movement);
+        Vehicle rover = new Rover(roverLocation, movement);
         MainNavigation mainNavigation = new MainNavigation();
-        roverList.add(rover);
-        mainNavigation.moveRover(roverList, plateau);
+        vehicleList.add(rover);
+        mainNavigation.moveVehicle(vehicleList, plateau);
 
         String actualResult = mainNavigation.getOutput();
 

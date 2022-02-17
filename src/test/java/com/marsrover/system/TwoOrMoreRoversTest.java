@@ -11,15 +11,15 @@ import static org.junit.Assert.assertEquals;
 public class TwoOrMoreRoversTest {
 
     private Plateau plateau;
-    private List<Rover> roverList;
-    private Rover rover;
+    private List<Vehicle> vehicleList;
+    private Vehicle rover;
     private MainNavigation mainNavigation;
     private String expectedResult;
     private String actualResult;
 
     @Before
     public void setup(){
-        roverList = new ArrayList<>();
+        vehicleList = new ArrayList<>();
         mainNavigation = new MainNavigation();
     }
 
@@ -27,10 +27,10 @@ public class TwoOrMoreRoversTest {
     public void twoInput(){
         plateau = new RectangularPlateau("5 5");
         rover = new Rover("1 2 N","LMLMLMLMM");
-        roverList.add(rover);
+        vehicleList.add(rover);
         rover = new Rover("3 3 E","MMRMMRMRRM");
-        roverList.add(rover);
-        mainNavigation.moveRover(roverList,plateau);
+        vehicleList.add(rover);
+        mainNavigation.moveVehicle(vehicleList,plateau);
 
         expectedResult = "1 3 N\n5 1 E";
         actualResult = mainNavigation.getOutput();
@@ -42,10 +42,10 @@ public class TwoOrMoreRoversTest {
     public void firstRoverCrash(){
         plateau = new RectangularPlateau("5 5");
         rover = new Rover("0 0 N","MMM");
-        roverList.add(rover);
+        vehicleList.add(rover);
         rover = new Rover("0 1 N","MMM");
-        roverList.add(rover);
-        mainNavigation.moveRover(roverList,plateau);
+        vehicleList.add(rover);
+        mainNavigation.moveVehicle(vehicleList,plateau);
 
         expectedResult = "Rover is crashed.\n0 4 N";
         actualResult = mainNavigation.getOutput();
@@ -57,10 +57,10 @@ public class TwoOrMoreRoversTest {
     public void secondRoverCrash(){
         plateau = new RectangularPlateau("5 5");
         rover = new Rover("0 1 N","M");
-        roverList.add(rover);
+        vehicleList.add(rover);
         rover = new Rover("0 0 N","MMM");
-        roverList.add(rover);
-        mainNavigation.moveRover(roverList,plateau);
+        vehicleList.add(rover);
+        mainNavigation.moveVehicle(vehicleList,plateau);
 
         expectedResult = "0 2 N\nRover is crashed.";
         actualResult = mainNavigation.getOutput();
@@ -72,12 +72,12 @@ public class TwoOrMoreRoversTest {
     public void secondAndThirdRoverCrash(){
         plateau = new RectangularPlateau("5 5");
         rover = new Rover("0 1 N","M");
-        roverList.add(rover);
+        vehicleList.add(rover);
         rover = new Rover("0 0 N","MMM");
-        roverList.add(rover);
+        vehicleList.add(rover);
         rover = new Rover("0 4 S","MMM");
-        roverList.add(rover);
-        mainNavigation.moveRover(roverList,plateau);
+        vehicleList.add(rover);
+        mainNavigation.moveVehicle(vehicleList,plateau);
 
         expectedResult = "0 2 N\nRover is crashed.\nRover is crashed.";
         actualResult = mainNavigation.getOutput();

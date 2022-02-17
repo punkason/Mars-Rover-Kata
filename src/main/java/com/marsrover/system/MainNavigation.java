@@ -8,12 +8,12 @@ public class MainNavigation {
         message="";
     }
 
-    public void moveRover(List<Rover> roverList, Plateau plateau){
-        for (Rover curRover : roverList) {
+    public void moveVehicle(List<Vehicle> vehicleList, Plateau plateau){
+        for (Vehicle currentVehicle : vehicleList) {
             if (!message.equals(""))
                 message += "\n";
-            curRover.sendSignalToRover(roverList, plateau);
-            message += curRover.receiveSignalFromRover();
+            currentVehicle.sendSignalToRover(vehicleList, plateau);
+            message += currentVehicle.receiveSignalFromRover();
         }
         if (message.equals(""))
             message = "There is no rover";

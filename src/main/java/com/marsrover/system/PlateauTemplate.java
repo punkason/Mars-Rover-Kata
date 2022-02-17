@@ -16,5 +16,4 @@ public abstract class PlateauTemplate implements Plateau {
 
     @Override
     public abstract boolean checkOutOfPlateau(int x, int y) throws Exception;
-
 }

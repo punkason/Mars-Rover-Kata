@@ -2,7 +2,7 @@ package com.marsrover.system;
 
 import java.util.List;
 
-public class Rover {
+public class Rover implements Vehicle{
     private static final int X_CHAR = 0;
     private static final int Y_CHAR = 1;
     private static final int COMPASS_CHAR = 2;
@@ -42,7 +42,7 @@ public class Rover {
     }
 
     private void roverLostSignal(){
-        x = -1; // the rover disappears from the plateau
+        x = -1; // the rover disappears from the plateaucurrentVehicle
         y = -1;
         message = "Rover is crashed.";
     }
@@ -51,17 +51,17 @@ public class Rover {
         message = "The coordinates are negative.";
     }
 
-    private boolean checkRoverCrash(List<Rover> roverList){
-        for (Rover tmpRover : roverList)
+    private boolean checkRoverCrash(List<Vehicle> vehicleList){
+        for (Vehicle tmpRover : vehicleList)
             if(tmpRover != this && (tmpRover.getX() == x && tmpRover.getY() == y)) {//skip comparing between my own rover AND checking if x,y is occupied
                 return true;
             }
         return false;
     }
 
-    private boolean roverHealthCheck(List<Rover> roverList, Plateau plateau){
+    private boolean roverHealthCheck(List<Vehicle> vehicleList, Plateau plateau){
         try {
-            if (plateau.checkOutOfPlateau(x, y) || checkRoverCrash(roverList)) {
+            if (plateau.checkOutOfPlateau(x, y) || checkRoverCrash(vehicleList)) {
                 roverLostSignal();
                 return false;
             }
@@ -72,7 +72,8 @@ public class Rover {
         }
     }
 
-    public void sendSignalToRover(List<Rover> roverList, Plateau plateau) {
+    @Override
+    public void sendSignalToRover(List<Vehicle> vehicleList, Plateau plateau) {
         for (int i = 0; i < MOVE.length(); i++){
             char action = MOVE.charAt(i);
             switch (action){
@@ -86,20 +87,23 @@ public class Rover {
                         case N, S -> roverMoveYAxis();
                     }
             }
-            if(!roverHealthCheck(roverList, plateau))
+            if(!roverHealthCheck(vehicleList, plateau))
                 return;
         }
         message =  x + " " + y + " " + compassPoint;
     }
 
+    @Override
     public String receiveSignalFromRover() {
         return message;
     }
 
+    @Override
     public int getX() {
         return x;
     }
 
+    @Override
     public int getY() {
         return y;
     }

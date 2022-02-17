@@ -51,3 +51,4 @@ You can run the unit tests in IntelliJ, or you can go to your terminal and insid
 ## Further enhancement
 
 Other type of plateau are supported by extending from PlateauTemplate.java
+Other type of vehicles are supported by extending from Vehicle.java

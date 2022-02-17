@@ -16,7 +16,7 @@ public class NoRoverTest {
         MainNavigation mainNavigation = new MainNavigation();
         mainNavigation.moveVehicle(vehicleList, plateau);
 
-        String expectedResult = "There is no rover";
+        String expectedResult = "There is no vehicle";
         String actualResult = mainNavigation.getOutput();
 
         assertEquals(expectedResult, actualResult);

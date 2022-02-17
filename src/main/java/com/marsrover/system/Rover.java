@@ -73,7 +73,7 @@ public class Rover implements Vehicle{
     }
 
     @Override
-    public void sendSignalToRover(List<Vehicle> vehicleList, Plateau plateau) {
+    public void sendSignalToVehicle(List<Vehicle> vehicleList, Plateau plateau) {
         for (int i = 0; i < MOVE.length(); i++){
             char action = MOVE.charAt(i);
             switch (action){

@@ -12,14 +12,15 @@ public class MainNavigation {
         for (Vehicle currentVehicle : vehicleList) {
             if (!message.equals(""))
                 message += "\n";
-            currentVehicle.sendSignalToRover(vehicleList, plateau);
+            currentVehicle.sendSignalToVehicle(vehicleList, plateau);
             message += currentVehicle.receiveSignalFromRover();
         }
         if (message.equals(""))
-            message = "There is no rover";
+            message = "There is no vehicle";
     }
 
     public String getOutput(){
         return message;
     }
+
 }

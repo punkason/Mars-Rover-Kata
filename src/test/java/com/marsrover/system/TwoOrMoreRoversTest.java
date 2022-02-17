@@ -24,7 +24,7 @@ public class TwoOrMoreRoversTest {
     }
 
     @Test
-    public void twoInput(){
+    public void twoNormalRovers(){
         plateau = new RectangularPlateau("5 5");
         rover = new Rover("1 2 N","LMLMLMLMM");
         vehicleList.add(rover);

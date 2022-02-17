@@ -13,12 +13,14 @@ public class TwoOrMoreRoversTest {
     private Plateau plateau;
     private List<Rover> roverList;
     private Rover rover;
+    private MainNavigation mainNavigation;
     private String expectedResult;
     private String actualResult;
 
     @Before
     public void setup(){
         roverList = new ArrayList<>();
+        mainNavigation = new MainNavigation();
     }
 
     @Test
@@ -28,10 +30,10 @@ public class TwoOrMoreRoversTest {
         roverList.add(rover);
         rover = new Rover("3 3 E","MMRMMRMRRM");
         roverList.add(rover);
-        plateau.moveRover(roverList);
+        mainNavigation.moveRover(roverList,plateau);
 
         expectedResult = "1 3 N\n5 1 E";
-        actualResult = plateau.getOutput();
+        actualResult = mainNavigation.getOutput();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -43,10 +45,10 @@ public class TwoOrMoreRoversTest {
         roverList.add(rover);
         rover = new Rover("0 1 N","MMM");
         roverList.add(rover);
-        plateau.moveRover(roverList);
+        mainNavigation.moveRover(roverList,plateau);
 
         expectedResult = "Rover is crashed.\n0 4 N";
-        actualResult = plateau.getOutput();
+        actualResult = mainNavigation.getOutput();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -58,10 +60,10 @@ public class TwoOrMoreRoversTest {
         roverList.add(rover);
         rover = new Rover("0 0 N","MMM");
         roverList.add(rover);
-        plateau.moveRover(roverList);
+        mainNavigation.moveRover(roverList,plateau);
 
         expectedResult = "0 2 N\nRover is crashed.";
-        actualResult = plateau.getOutput();
+        actualResult = mainNavigation.getOutput();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -75,10 +77,10 @@ public class TwoOrMoreRoversTest {
         roverList.add(rover);
         rover = new Rover("0 4 S","MMM");
         roverList.add(rover);
-        plateau.moveRover(roverList);
+        mainNavigation.moveRover(roverList,plateau);
 
         expectedResult = "0 2 N\nRover is crashed.\nRover is crashed.";
-        actualResult = plateau.getOutput();
+        actualResult = mainNavigation.getOutput();
 
         assertEquals(expectedResult, actualResult);
     }

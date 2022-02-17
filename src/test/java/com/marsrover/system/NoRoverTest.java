@@ -13,10 +13,11 @@ public class NoRoverTest {
     public void noRover(){
         List<Rover> roverList = new ArrayList<>();
         Plateau plateau = new RectangularPlateau("5 5");
-        plateau.moveRover(roverList);
+        MainNavigation mainNavigation = new MainNavigation();
+        mainNavigation.moveRover(roverList, plateau);
 
         String expectedResult = "There is no rover";
-        String actualResult = plateau.getOutput();
+        String actualResult = mainNavigation.getOutput();
 
         assertEquals(expectedResult, actualResult);
     }

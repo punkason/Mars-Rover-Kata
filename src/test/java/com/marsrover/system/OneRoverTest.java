@@ -46,10 +46,11 @@ public class OneRoverTest {
         List<Rover> roverList = new ArrayList<>();
         Plateau plateau = new RectangularPlateau(plateauSize);
         Rover rover = new Rover(roverLocation, movement);
+        MainNavigation mainNavigation = new MainNavigation();
         roverList.add(rover);
-        plateau.moveRover(roverList);
+        mainNavigation.moveRover(roverList, plateau);
 
-        String actualResult = plateau.getOutput();
+        String actualResult = mainNavigation.getOutput();
 
         assertEquals(expectedResult, actualResult);
     }

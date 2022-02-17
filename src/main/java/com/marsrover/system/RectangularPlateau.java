@@ -11,5 +11,4 @@ public class RectangularPlateau extends PlateauTemplate {
             throw new Exception();
         return x > MAX_X || y > MAX_Y;
     }
-
 }

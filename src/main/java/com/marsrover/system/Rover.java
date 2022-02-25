@@ -22,7 +22,7 @@ public class Rover implements Vehicle{
 
     private void roverChangeDirection(char action){
         if (action == 'L')
-            compassPoint = compassPoint.getPre();
+            compassPoint = compassPoint.getPrevious();
         else //R
             compassPoint = compassPoint.getNext();
     }

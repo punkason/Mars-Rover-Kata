@@ -13,7 +13,7 @@ public enum CompassEnum {
         return CompassEnum.values()[(this.ordinal() + 1) % COMPASS_LENGTH] ;
     }
 
-    public CompassEnum getPre(){
+    public CompassEnum getPrevious(){
         return CompassEnum.values()[(COMPASS_LENGTH + this.ordinal() - 1) % COMPASS_LENGTH] ;
     }
 }

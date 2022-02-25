@@ -6,7 +6,7 @@ public interface Vehicle {
 
     void sendSignalToVehicle(List<Vehicle> vehicleList, Plateau plateau);
 
-    String receiveSignalFromRover();
+    String receiveSignalFromVehicle();
 
     int getX();
 

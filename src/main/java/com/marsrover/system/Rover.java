@@ -94,7 +94,7 @@ public class Rover implements Vehicle{
     }
 
     @Override
-    public String receiveSignalFromRover() {
+    public String receiveSignalFromVehicle() {
         return message;
     }
 

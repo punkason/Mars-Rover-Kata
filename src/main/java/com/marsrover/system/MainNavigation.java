@@ -13,7 +13,7 @@ public class MainNavigation {
             if (!message.equals(""))
                 message += "\n";
             currentVehicle.sendSignalToVehicle(vehicleList, plateau);
-            message += currentVehicle.receiveSignalFromRover();
+            message += currentVehicle.receiveSignalFromVehicle();
         }
         if (message.equals(""))
             message = "There is no vehicle";
